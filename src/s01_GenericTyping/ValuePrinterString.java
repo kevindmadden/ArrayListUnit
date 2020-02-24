@@ -3,8 +3,8 @@ package s01_GenericTyping;
 public class ValuePrinterString{
 
     //private instance variables
-    String val1;
-    String val2;
+    private String val1;
+    private String val2;
 
     //constructor
     public ValuePrinterString(String val1, String val2){
