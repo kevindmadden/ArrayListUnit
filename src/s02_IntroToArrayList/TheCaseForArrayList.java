@@ -13,14 +13,13 @@ public class TheCaseForArrayList {
         // = = = = = = = = = = = = = = = = = = = = = = = = = = = =
 
 
-        //This is a small program designed to print out whichever 5 integers the user gives it.
-        runProgramRequesting5Ints();
+        //This is a small "program" designed to print out whichever five integers the user gives:
+        runProgramRequestingFiveInts();
 
         /*
-        Questions:
-            1. How could you modify the program so that it prints out whichever 6 integers the user gives it?
-                    a. What specific things did you need to modify in the existing code?
-                    b. In particular, how did you have to change the way you created the array?
+            1. How could you modify the program so that it prints out whichever SIX integers the user gives it?
+                a. What specific things did you need to modify in the existing code?
+                b. In particular, how did you have to change the way you created the array?
         */
 
 
@@ -41,7 +40,7 @@ public class TheCaseForArrayList {
 
     }
 
-    public static void runProgramRequesting5Ints(){
+    public static void runProgramRequestingFiveInts(){
         int numOfValuesToCollect = 5;
         Scanner kb = new Scanner(System.in);
         int[] valuesToStore = new int[numOfValuesToCollect];
