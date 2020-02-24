@@ -1,7 +1,5 @@
 package s01_GenericTyping;
 
-import java.util.Arrays;
-
 public class Lesson_GenericTyping {
 
     // = = = = = = = = = = = = = = = = = = = = = = = = = = = =
@@ -84,12 +82,6 @@ public class Lesson_GenericTyping {
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
         // Print using the same class, which uses a generic type:
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-        ValuePrinterGeneric<String> stringPrinter2 = new ValuePrinterGeneric<String>("hello", "world");
-        stringPrinter2.printValues();
-        ValuePrinterGeneric<Integer> intPrinter2 = new ValuePrinterGeneric<Integer>(123456789, 987654321);
-        intPrinter2.printValues();
-        ValuePrinterGeneric<Double> doublePrinter2 = new ValuePrinterGeneric<Double>(32.45, 76.89);
-        doublePrinter2.printValues();
 
 
         // Q: Why use Integer and Double instead of int and double?
