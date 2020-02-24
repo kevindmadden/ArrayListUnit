@@ -20,6 +20,8 @@ public class Lesson_GenericTyping {
     4. Write a method called **printValues**, which should print each value on the same line with a comma between them.
     - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
 
+
+
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     Task #2:
     Write a second class. This class should be identical to the one in Task #1, but it should instead
@@ -52,7 +54,8 @@ public class Lesson_GenericTyping {
 
     public static void main(String[] args) {
         // Create a new object of type **ValuePrinterString**. Pass two String values into the constructor. Then call **printValues**.
-
+        ValuePrinterString stringPrinter = new ValuePrinterString("hello", "world");
+        stringPrinter.printValues();
 
 
 

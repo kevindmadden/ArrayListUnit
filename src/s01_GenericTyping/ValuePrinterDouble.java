@@ -3,8 +3,8 @@ package s01_GenericTyping;
 public class ValuePrinterDouble {
 
     //private instance variables
-    double val1;
-    double val2;
+    private double val1;
+    private double val2;
 
     //constructor
     public ValuePrinterDouble(double val1, double val2){

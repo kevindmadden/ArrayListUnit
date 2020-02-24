@@ -3,8 +3,8 @@ package s01_GenericTyping;
 public class ValuePrinterGeneric<E> {
 
     //private instance variables
-    E val1;
-    E val2;
+    private E val1;
+    private E val2;
 
     //constructor
     public ValuePrinterGeneric(E val1, E val2){

@@ -1,96 +1,43 @@
 package s01_GenericTyping;
 
-import java.util.Arrays;
-
 public class Lesson_KEY_GenericTyping {
 
-    // = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-    // = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-    //
-    // The Case for Generic Types
-    //
-    // = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-    // = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-
-
-    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    Task #1:
-    Write a new class called ValuePrinterStrings as follows:
-    1. Declare a private instance variable called **val1** of type String.
-    2. Declare a private instance variable called **val2** of type String.
-    3. Write a constructor that accepts two String parameters and stores them in **val1** and **val2**.
-    4. Write a method called **printValues**, which should print each value on the same line with a comma between them.
-    - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-
-    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    Task #2:
-    Write a second class. This class should be identical to the one in Task #1, but it should instead
-    be called **ValuePrinterInt** and use int types instead of String types.
-    - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-
-    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    Task #3:
-    Write a third class. This class should be identical to the one in Task #1, but it should instead
-    be called **ValuePrinterDouble** and use double types instead of String types.
-    - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-
-    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    Illustration #1:
-    Write a fourth class called ValuePrinterGeneric.
-    This single class should have the same functionality as the three different classes created in Tasks #1-3.
-    - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-
-    /* - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-    Q&A
-    1. Do I need to be able to write my own classes on the AP exam that use generic types?
-            No. However, you need to be able to use the ArrayList class, which uses generic typing.
-    2. What is the purpose of these exercises?
-            a. To show you why generic types are useful.
-            b. The ArrayList class (the topic of the unit) uses generic typing. So you DO need to be able
-            to use classes on the AP Exam that use generic typing. This should be more straightforward once
-            you see what is going on behind the scenes to make generic typing work.
-    - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-
+    // Task #1: Write ValuePrinterStrings
+    // Task #2: Write ValuePrinterInt
+    // Task #3: Write ValuePrinterDouble
 
     public static void main(String[] args) {
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-        // Print using "normal" classes:
+        // Task #4 Key
+        // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+        // 1. Create an object called stringPrinter from the ValuePrinterStrings class. In the constructor, pass in the values "hello" and "world". Call the printValues method on this new object.
+        // 2. Create an object called intPrinter from the ValuePrinterInt class. In the constructor, pass in the values 123456789 and 987654321. Call the printValues method on this new object.
+        // 3. Create an object called doublePrinter from the ValuePrinterDouble class. In the constructor, pass in the values 32.45 and 76.89. Call the printValues method on this new object.
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
 
-        // Create a new object of type **ValuePrinterString**. Pass two String values into the constructor. Then call **printValues**.
+        // 1.
         ValuePrinterString stringPrinter = new ValuePrinterString("hello", "world");
         stringPrinter.printValues();
 
-        // Create a new object of type **ValuePrinterInt**. Pass two int values into the constructor. Then call **printValues**.
+        // 2.
         ValuePrinterInt intPrinter = new ValuePrinterInt(123456789, 987654321);
         intPrinter.printValues();
 
-        // Create a new object of type **ValuePrinterDouble**. Pass two double values into the constructor. Then call **printValues**.
+        // 3.
         ValuePrinterDouble doublePrinter = new ValuePrinterDouble(32.45, 76.89);
         doublePrinter.printValues();
 
 
-        /*
-        * * * * * * * * * * * * * * * * * * * * * *
-        NOTES - Generic Typing
-        * * * * * * * * * * * * * * * * * * * * * *
-
-        Definition: A generic type is the type you use when you do not know what type you need to use in advance.
-        - Think of a generic type as a variable that holds a type.
-
-        Example: See the class ValuePrinterGeneric
-        - Instead of a data type like String, int, or double, the letter E is used instead.
-        - Notice the <E> when naming the class: **public class ValuePrinterGeneric<E> {**
-
-         */
 
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
         // Print using the same class, which uses a generic type:
         // - - - - - - - - - - - - - - - - - - - - - - - - - - - -
         ValuePrinterGeneric<String> stringPrinter2 = new ValuePrinterGeneric<String>("hello", "world");
         stringPrinter2.printValues();
+
         ValuePrinterGeneric<Integer> intPrinter2 = new ValuePrinterGeneric<Integer>(123456789, 987654321);
         intPrinter2.printValues();
+
         ValuePrinterGeneric<Double> doublePrinter2 = new ValuePrinterGeneric<Double>(32.45, 76.89);
         doublePrinter2.printValues();
 

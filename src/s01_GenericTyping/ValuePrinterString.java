@@ -17,3 +17,4 @@ public class ValuePrinterString{
         System.out.println("Value 2: "+val2);
     }
 }
+

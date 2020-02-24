@@ -3,8 +3,8 @@ package s01_GenericTyping;
 public class ValuePrinterInt {
 
     //private instance variables
-    int val1;
-    int val2;
+    private int val1;
+    private int val2;
 
     //constructor
     public ValuePrinterInt(int val1, int val2){
@@ -17,3 +17,4 @@ public class ValuePrinterInt {
         System.out.println("Value 2: "+val2);
     }
 }
+
