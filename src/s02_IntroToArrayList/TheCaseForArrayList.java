@@ -3,17 +3,6 @@ import java.util.Scanner;
 
 public class TheCaseForArrayList {
     public static void main(String[] args) {
-
-        // = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-        // = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-        //
-        // The Case for ArrayList
-        //
-        // = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-        // = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-
-
-        //This is a small "program" designed to print out whichever five integers the user gives:
         runProgramRequestingFiveInts();
 
         /*

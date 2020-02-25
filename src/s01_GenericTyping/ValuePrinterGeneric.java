@@ -1,6 +1,6 @@
 package s01_GenericTyping;
 
-public class ValuePrinterGeneric<E> {
+public class ValuePrinterGeneric<E,T> {
 
     //private instance variables
     private E val1;
