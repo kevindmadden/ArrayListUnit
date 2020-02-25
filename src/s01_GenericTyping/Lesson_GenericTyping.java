@@ -2,15 +2,6 @@ package s01_GenericTyping;
 
 public class Lesson_GenericTyping {
 
-    // = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-    // = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-    //
-    // The Case for Generic Types
-    //
-    // = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-    // = = = = = = = = = = = = = = = = = = = = = = = = = = = =
-
-
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     Task #1:
     Write a new class called **ValuePrinterString** as follows:
@@ -19,8 +10,6 @@ public class Lesson_GenericTyping {
     3. Write a constructor that accepts two String parameters and stores them in **val1** and **val2**.
     4. Write a method called **printValues**, which should print each value on the same line with a comma between them.
     - - - - - - - - - - - - - - - - - - - - - - - - - - - - */
-
-
 
     /* - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     Task #2:
