@@ -46,6 +46,8 @@ let prevTimeStamp = 0
 class ArrayListAnimation {
     isAnimating = false
     isShifting = false
+    xShiftDist = 0
+    xVel = 100
     indexAddedAt = 0
 
     length = 0
@@ -77,17 +79,28 @@ class ArrayListAnimation {
 
     squareSize = 40
     squarePadding = 5
-    draw(){
+    draw(timeElapsed){
         let squareSize = this.squareSize
         let squarePadding = this.squarePadding
         let originalArrayList = this.elements
-        let offset = 0
         if(this.isShifting){
-            originalArrayList = this.elements.splice(this.indexAddedAt,1)
+            if(this.xShiftDist >= this.squareSize+this.squarePadding*2){
+                this.isShifting = false
+                this.xShiftDist = 0
+            }else{
+                originalArrayList = this.elements.splice(this.indexAddedAt,1)
+                this.xShiftDist = this.xShiftDist + this.xVel*timeElapsed
+                console.log("gote here")
+            }
         }
         for(let i = 0; i<originalArrayList.length; i++){
+
             let xPosGrid = i*(this.squareSize+this.squarePadding*2)
             let xPosGridCenter = xPosGrid+(this.squareSize+this.squarePadding*2)*0.5
+            if(this.isShifting && i >= this.indexAddedAt){
+                xPosGrid = xPosGrid + this.xShiftDist
+                xPosGridCenter = xPosGridCenter + this.xShiftDist
+            }
 
             ctx.fillStyle = "#92fffc"
             ctx.fillRect(xPosGrid+this.squarePadding,this.squarePadding+70,this.squareSize,this.squareSize)
@@ -96,7 +109,6 @@ class ArrayListAnimation {
             ctx.font = "15px Roboto";
             ctx.fillText(originalArrayList[i].value, xPosGridCenter, 100); //element value
             ctx.fillText(i.toString(), xPosGridCenter, 60); //index number
-            console.log("drawing index number: "+i)
         }
     }
 
@@ -111,11 +123,13 @@ class ArrayListElement {
 }
 
 const ArrayList = new ArrayListAnimation()
-for(let i=0; i<20; i++){
+function generateArrayListElementRandDecNum(){
     let precision = 100; // 2 decimals
     let randomNum = Math.floor(Math.random() * (10 * precision - 1 * precision) + 1 * precision) / (1*precision)
-    let element = new ArrayListElement(randomNum)
-    ArrayList.initialAdd(element)
+    return new ArrayListElement(randomNum)
+}
+for(let i=0; i<20; i++){
+    ArrayList.initialAdd(generateArrayListElementRandDecNum())
 }
 
 
@@ -128,7 +142,7 @@ function gameLoop(currentTimeStamp){
     let timeElapsed = (currentTimeStamp - prevTimeStamp)/1000
     ctx.clearRect(0,0,1000,400)
 
-    ArrayList.draw()
+    ArrayList.draw(timeElapsed)
 
     window.requestAnimationFrame(gameLoop)
 }
@@ -234,4 +248,9 @@ function keyHandler(event) {
     if(event.key===kbInput.down.value){
         kbInput.down.isPressed = isPressed
     }
+}
+
+// Buttons
+function buttonAddElementAt(){
+    ArrayList.addAt(5,generateArrayListElementRandDecNum())
 }
