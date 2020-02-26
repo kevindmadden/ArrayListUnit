@@ -180,31 +180,6 @@ function gameLoop(currentTimeStamp){
 
 
 
-function isPointInRect(xPoint, yPoint, xPosTopLeftRect,
-                       yPosTopLeftRect, rectWidth, rectHeight){
-    if(yPoint < yPosTopLeftRect + rectHeight && yPoint > yPosTopLeftRect && xPoint < xPosTopLeftRect + rectWidth && xPoint > xPosTopLeftRect){
-        return true
-    }
-    return false
-}
-
-function didRectCollideWithRect(xRect1, yRect1, widthRect1, heightRect1,
-                                xRect2, yRect2, widthRect2, heightRect2){
-    //top left point of rect1 - check if in rect2
-    let didTopLeftPointCollide = isPointInRect(xRect1, yRect1, xRect2, yRect2, widthRect2, heightRect2)
-    //top right point of rect1
-    let didTopRightPointCollide = isPointInRect(xRect1+widthRect1, yRect1, xRect2, yRect2, widthRect2, heightRect2)
-    //bottom left point of rect1
-    let didBottomLeftPointCollide = isPointInRect(xRect1, yRect1+heightRect1, xRect2, yRect2, widthRect2, heightRect2)
-    //bottom right point of rect1
-    let didBottomRightPointCollide = isPointInRect(xRect1+widthRect1, yRect1+heightRect1, xRect2, yRect2, widthRect2, heightRect2)
-
-    if(didTopLeftPointCollide || didTopRightPointCollide || didBottomLeftPointCollide || didBottomRightPointCollide){
-        return true
-    }
-    return false
-
-}
 
 
 
@@ -233,53 +208,6 @@ canvas.addEventListener('mousedown', function(e) {
     isMouseDown = true
 })
 
-
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-// Keyboard Input
-// - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
-
-canvas.addEventListener('keydown', keyHandler)
-canvas.addEventListener('keyup', keyHandler)
-
-let kbInput = {
-    left : {
-        value : "ArrowLeft",
-        isPressed: false,
-    },
-    right : {
-        value : "ArrowRight",
-        isPressed: false,
-    },
-    down : {
-        value : "ArrowDown",
-        isPressed: false,
-    },
-    up : {
-        value : "ArrowUp",
-        isPressed: false,
-    },
-}
-
-function keyHandler(event) {
-    event.preventDefault()
-    let type = event.type
-    let isPressed = false
-    if(type==="keydown"){
-        isPressed = true
-    }
-    if(event.key===kbInput.left.value){
-        kbInput.left.isPressed = isPressed
-    }
-    if(event.key===kbInput.right.value){
-        kbInput.right.isPressed = isPressed
-    }
-    if(event.key===kbInput.up.value){
-        kbInput.up.isPressed = isPressed
-    }
-    if(event.key===kbInput.down.value){
-        kbInput.down.isPressed = isPressed
-    }
-}
 
 // Buttons
 function buttonAddElementAt(){
