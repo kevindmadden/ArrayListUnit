@@ -4,29 +4,6 @@ import java.util.Scanner;
 public class TheCaseForArrayList {
     public static void main(String[] args) {
         runProgramRequestingFiveInts();
-
-        /*
-            1. How could you modify the program so that it prints out whichever SIX integers the user gives it?
-                a. What specific things did you need to modify in the existing code?
-                b. In particular, how did you have to change the way you created the array?
-        */
-
-
-        /*
-            2. How could you modify this program so that the user can enter integers forever until they choose to stop?
-            Note that the user should be able to decide to stop typing out more integers anytime they want.
-        */
-
-
-        /*
-        Limitations of Arrays:
-
-
-
-
-         */
-
-
     }
 
     public static void runProgramRequestingFiveInts(){
