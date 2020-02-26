@@ -24,7 +24,7 @@ createHiDPICanvas = function(w, h, ratio) {
 }
 
 //Create canvas with the device resolution.
-let canvas = createHiDPICanvas(1000, 250);
+let canvas = createHiDPICanvas(1000, 200);
 
 //let canvas = document.getElementById("canvas");
 let ctx = canvas.getContext("2d");
