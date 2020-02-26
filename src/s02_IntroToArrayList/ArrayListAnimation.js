@@ -47,7 +47,9 @@ class ArrayListAnimation {
     isAnimating = false
     isShifting = false
     xShiftDist = 0
-    xVel = 100
+    xVel = 30
+    yShiftDist
+    yVel = 30
     indexAddedAt = 0
 
     length = 0
@@ -79,36 +81,63 @@ class ArrayListAnimation {
 
     squareSize = 40
     squarePadding = 5
+    getXPosGrid(index, includeAnimatingShiftInGridPos=true){
+        let leftGridXPos = index*(this.squareSize+this.squarePadding*2)
+        if(includeAnimatingShiftInGridPos && this.isShifting && index > this.indexAddedAt){
+            leftGridXPos = (index-1)*(this.squareSize+this.squarePadding*2) //when new element is first added, the leftGridXPos needs to slowly shift to the right from its previous index position of index-1
+            leftGridXPos = leftGridXPos + this.xShiftDist
+        }
+        let retObj = {
+            left : leftGridXPos,
+            center : leftGridXPos + (this.squareSize+this.squarePadding*2)*0.5,
+        }
+        return retObj
+    }
     draw(timeElapsed){
         let squareSize = this.squareSize
         let squarePadding = this.squarePadding
-        let originalArrayList = this.elements
+        let prevArrayList = [...this.elements]
         if(this.isShifting){
             if(this.xShiftDist >= this.squareSize+this.squarePadding*2){
                 this.isShifting = false
                 this.xShiftDist = 0
+                this.yShiftDist = 0
             }else{
-                originalArrayList = this.elements.splice(this.indexAddedAt,1)
+                prevArrayList.splice(this.indexAddedAt,1)
                 this.xShiftDist = this.xShiftDist + this.xVel*timeElapsed
-                console.log("gote here")
+                this.yShiftDist = this.yShiftDist + this.yVel*timeElapsed
             }
         }
-        for(let i = 0; i<originalArrayList.length; i++){
+        for(let i = 0; i<this.elements.length; i++){
 
-            let xPosGrid = i*(this.squareSize+this.squarePadding*2)
-            let xPosGridCenter = xPosGrid+(this.squareSize+this.squarePadding*2)*0.5
-            if(this.isShifting && i >= this.indexAddedAt){
-                xPosGrid = xPosGrid + this.xShiftDist
-                xPosGridCenter = xPosGridCenter + this.xShiftDist
+            let xPosGrid = this.getXPosGrid(i)
+            let yPos = 70
+
+
+            if(this.isShifting && this.indexAddedAt===i){
+                yPos = 70+50-this.yShiftDist
             }
-
             ctx.fillStyle = "#92fffc"
-            ctx.fillRect(xPosGrid+this.squarePadding,this.squarePadding+70,this.squareSize,this.squareSize)
+            ctx.fillRect(xPosGrid.left+this.squarePadding,this.squarePadding+yPos,this.squareSize,this.squareSize)
             ctx.fillStyle = "black"
             ctx.textAlign = "center";
             ctx.font = "15px Roboto";
-            ctx.fillText(originalArrayList[i].value, xPosGridCenter, 100); //element value
-            ctx.fillText(i.toString(), xPosGridCenter, 60); //index number
+            ctx.fillText(this.elements[i].value, xPosGrid.center, yPos+30); //element value
+        }
+
+        //draws index numbers
+        for(let i = 0; i<this.elements.length; i++){
+            let xPosGrid = this.getXPosGrid(i,false)
+            if(this.isShifting && i===this.elements.length-1){
+                ctx.fillStyle = "red"
+                ctx.globalAlpha = (this.xShiftDist/(this.squareSize+this.squarePadding*2));
+                ctx.fillText(i.toString(), xPosGrid.center, 60); //index number
+                ctx.globalAlpha = 1
+            }else{
+                ctx.fillStyle = "black"
+                ctx.fillText(i.toString(), xPosGrid.center, 60); //index number
+            }
+
         }
     }
 
@@ -128,7 +157,7 @@ function generateArrayListElementRandDecNum(){
     let randomNum = Math.floor(Math.random() * (10 * precision - 1 * precision) + 1 * precision) / (1*precision)
     return new ArrayListElement(randomNum)
 }
-for(let i=0; i<20; i++){
+for(let i=0; i<7; i++){
     ArrayList.initialAdd(generateArrayListElementRandDecNum())
 }
 
@@ -140,6 +169,7 @@ window.requestAnimationFrame(gameLoop)
 
 function gameLoop(currentTimeStamp){
     let timeElapsed = (currentTimeStamp - prevTimeStamp)/1000
+    prevTimeStamp = currentTimeStamp
     ctx.clearRect(0,0,1000,400)
 
     ArrayList.draw(timeElapsed)
