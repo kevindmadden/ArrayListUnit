@@ -48,7 +48,7 @@ class ArrayListAnimation {
     isShifting = false
     xShiftDist = 0
     xVel = 30
-    yShiftDist
+    yShiftDist = 0
     yVel = 30
     indexAddedAt = 0
 
@@ -62,9 +62,13 @@ class ArrayListAnimation {
         this.isShifting = true
     }
     addAt(index, element){
+        console.log("Top of addAt method")
+        console.log(this.elements)
+        console.log("splice method")
         this.elements.splice(index,0, element)
-        this.isShifting = true
+        console.log(this.elements)
         this.indexAddedAt = index
+        this.isShifting = true
     }
     get(index){
         return this.elements[index]
@@ -87,23 +91,20 @@ class ArrayListAnimation {
             leftGridXPos = (index-1)*(this.squareSize+this.squarePadding*2) //when new element is first added, the leftGridXPos needs to slowly shift to the right from its previous index position of index-1
             leftGridXPos = leftGridXPos + this.xShiftDist
         }
-        let retObj = {
-            left : leftGridXPos,
-            center : leftGridXPos + (this.squareSize+this.squarePadding*2)*0.5,
+        return {
+            left: leftGridXPos,
+            center: leftGridXPos + (this.squareSize + this.squarePadding * 2) * 0.5,
         }
-        return retObj
     }
     draw(timeElapsed){
         let squareSize = this.squareSize
         let squarePadding = this.squarePadding
-        let prevArrayList = [...this.elements]
         if(this.isShifting){
             if(this.xShiftDist >= this.squareSize+this.squarePadding*2){
                 this.isShifting = false
                 this.xShiftDist = 0
                 this.yShiftDist = 0
             }else{
-                prevArrayList.splice(this.indexAddedAt,1)
                 this.xShiftDist = this.xShiftDist + this.xVel*timeElapsed
                 this.yShiftDist = this.yShiftDist + this.yVel*timeElapsed
             }
@@ -144,8 +145,8 @@ class ArrayListAnimation {
 }
 
 class ArrayListElement {
-    value = "test"
-    generateRandomNumber = false
+    //value = "test"
+    //generateRandomNumber = false
     constructor(value){
         this.value = value
     }
@@ -282,5 +283,10 @@ function keyHandler(event) {
 
 // Buttons
 function buttonAddElementAt(){
-    ArrayList.addAt(5,generateArrayListElementRandDecNum())
+    let inputVal = document.getElementById("addAtThisIndex").value
+    ArrayList.addAt(Number(inputVal),generateArrayListElementRandDecNum())
+}
+
+function buttonAddElementAtEnd(){
+    ArrayList.addAt(ArrayList.elements.length,generateArrayListElementRandDecNum())
 }

@@ -1,4 +1,15 @@
 <html>
+<style>
+    body,
+    input,
+    select,
+    input,
+    button {
+        font-family: Arial,Helvetica,sans-serif;
+        font-size: 30px;
+    }
+
+</style>
 
 <canvas id="canvas" width="1000px" height="400px" style="border:1px solid #000000;" tabindex="1" autofocus></canvas>
 <script src="ArrayListAnimation.js" type="text/javascript"></script>
@@ -6,7 +17,13 @@
 
 <p id="coordinateValues">Coordinates - x: 0, y: 0</p>
 
-<input id="clickMe" type="button" value="clickme" onclick="buttonAddElementAt();" />
+<button id="clickMeToAddAtIndex" type="button"  onclick="buttonAddElementAt();">add(</button>
+<input style="width:50px" type="text" placeholder="0" id="addAtThisIndex">, E obj)
+
+<br>
+<br>
+
+<button type="button"  onclick="buttonAddElementAtEnd();">add(</button>E obj)
 
 
 </html>
