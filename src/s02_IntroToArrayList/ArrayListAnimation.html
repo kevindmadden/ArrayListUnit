@@ -6,7 +6,10 @@
     input,
     button {
         font-family: Arial,Helvetica,sans-serif;
-        font-size: 30px;
+        font-size: 12px;
+    }
+    input {
+        width: 20px;
     }
 
 </style>
@@ -15,15 +18,18 @@
 <script src="ArrayListAnimation.js" type="text/javascript"></script>
 
 
-<p id="coordinateValues">Coordinates - x: 0, y: 0</p>
+<pre>List&lt;Integer&gt; myList = new ArrayList&lt;Integer&gt;();</pre>
 
-<button id="clickMeToAddAtIndex" type="button"  onclick="buttonAddElementAt();">add(</button>
-<input style="width:50px" type="text" placeholder="0" id="addAtThisIndex">, E obj)
+<pre>myList.<button id="clickMeToAddAtIndex" type="button"  onclick="buttonAddElementAt();">add(</button><input type="text" placeholder="0" id="addAtThisIndex">, E obj);</pre>
 
-<br>
-<br>
+<pre>myList.<button type="button"  onclick="buttonAddElementAtEnd();">add(</button>E obj);</pre>
 
-<button type="button"  onclick="buttonAddElementAtEnd();">add(</button>E obj)
+<pre>myList.<button type="button"  onclick="getElement();">get(</button><input type="text" placeholder="0" id="getAtThisIndex">);<span id="getArrayListValue">  Returned Value:</span>
+</pre>
+
+<pre>myList.<button type="button"  onclick="setElement();">set(</button><input type="text" placeholder="0" id="setAtThisIndex">)</pre>
+
+<pre>myList.<button type="button"  onclick="removeElement();">remove(</button><input type="text" placeholder="0" id="removeAtThisIndex">)</pre>
 
 
 </html>

@@ -285,8 +285,35 @@ function keyHandler(event) {
 function buttonAddElementAt(){
     let inputVal = document.getElementById("addAtThisIndex").value
     ArrayList.addAt(Number(inputVal),generateArrayListElementRandDecNum())
+
+    resetGetElementSpace()
 }
 
 function buttonAddElementAtEnd(){
     ArrayList.addAt(ArrayList.elements.length,generateArrayListElementRandDecNum())
+
+    resetGetElementSpace()
+}
+
+function getElement(){
+    let inputVal = document.getElementById("getAtThisIndex").value
+    document.getElementById("getArrayListValue").innerHTML = "&nbsp;&nbsp;Returned Value: "+ ArrayList.elements[Number(inputVal)].value
+}
+
+function setElement(){
+    let inputVal = document.getElementById("setAtThisIndex").value
+    ArrayList.set(Number(inputVal), generateArrayListElementRandDecNum())
+
+    resetGetElementSpace()
+}
+
+function removeElement(){
+    let inputVal = document.getElementById("removeAtThisIndex").value
+    ArrayList.remove(Number(inputVal))
+
+    resetGetElementSpace()
+}
+
+function resetGetElementSpace(){
+    document.getElementById("getArrayListValue").innerHTML = "&nbsp;&nbsp;Returned Value: "
 }
