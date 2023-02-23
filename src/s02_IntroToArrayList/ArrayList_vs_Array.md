@@ -1,8 +1,11 @@
 <h1>ArrayList versus Array</h1>
 <h2>Creating an Array</h2>
-|Array|ArrayList|
-| --- |:---:| ---: |
-| test|test | test |
+| Tables        | Are           | Cool  |
+| ------------- |:-------------:| -----:|
+| col 3 is      | right-aligned | $1600 |
+| col 2 is      | centered      |   $12 |
+| zebra stripes | are neat      |    $1 |
+
 
 ```java
 int[] arr = new int[3];
