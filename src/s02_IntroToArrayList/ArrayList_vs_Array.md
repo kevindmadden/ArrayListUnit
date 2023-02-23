@@ -1,6 +1,8 @@
 <h1>ArrayList versus Array</h1>
 <h2>Creating an Array</h2>
-<h4>Array</h4>
+|Array|ArrayList|
+| --- |:---:| ---: |
+| test|test | test |
 
 ```java
 int[] arr = new int[3];
