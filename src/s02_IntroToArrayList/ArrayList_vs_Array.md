@@ -101,7 +101,7 @@ arrL.set(arrL.get(2),0);
 <table>
 <tr><th>Array</th><th>ArrayList</th></tr>
 <tr><td>For a normal array, you would need to make a brand new array that has one less element and then copy the values over manually. This is because once you set the length of a normal array, you aren't able to change the length.</td>
-<td>For ArrayList, it is considerably easier to remove elements because you can change the length of an ArrayList on the fly. To remove the element at index 1 of an ArrayList with three elements, all you have to do is call...</td>
+<td>For ArrayList, it is considerably easier to remove elements because you can change the length of an ArrayList on the fly. To remove the element at index 1 of an ArrayList, you only need to call the below line of code. Once called, the element at index 1 is deleted, and the ArrayList shrinks to have only two elements.</td>
 </tr>
 
 <tr>
