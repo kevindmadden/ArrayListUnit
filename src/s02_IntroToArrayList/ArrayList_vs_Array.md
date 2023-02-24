@@ -1,6 +1,4 @@
 <h1>ArrayList versus Array</h1>
-
-
 <h2>Creating an Array</h2>
 <table>
 <tr><th>Array</th><th>ArrayList</th></tr>
